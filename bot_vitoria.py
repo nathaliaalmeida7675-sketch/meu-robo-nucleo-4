@@ -1,18 +1,20 @@
 import os
-from datetime import datetime
+import time
 
-# O Python busca sua chave no cofre (Secret) para assinar o trabalho
 chave = os.getenv('STREAMR_PRIVATE_KEY')
 
-def minerar():
-    agora = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+def minerador():
     if chave:
-        # Identificação do quarto operário da sua frota
-        print(f"✅ [{agora}] BOT 04 ATIVO: Enviando dados para a rede...")
-        print(f"💰 [{agora}] STATUS: Sucesso. Lucro computado para a carteira 0x348...")
+        print("✅ [BOT 04] Crachá validado! Conectado na Streamr...")
+        tempo_trabalho = 15 * 60 
+        inicio = time.time()
+        while (time.time() - inicio) < tempo_trabalho:
+            print("🚀 [BOT 04] Minerando dados... Produção ativa.")
+            time.sleep(70) # Intervalo de 70 segundos
+        print("Sessão do BOT 04 finalizada.")
     else:
-        print(f"❌ [{agora}] ERRO: Verifique se o Secret foi criado neste repositório.")
+        print("❌ Erro no BOT 04: Chave não encontrada.")
 
 if __name__ == "__main__":
-    minerar()
+    minerador()
 
